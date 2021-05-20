@@ -26,4 +26,14 @@ class LineStatistics {
     }
 
     ~LineStatistics();
+
+    // Getters
+    std::string getName();
+    Time getStartTime();
+    Time getEndTime();
+
+    // Setters
+    void setName(std::string name);
+    void setStartTime(Time start);
+    void setEndTime(Time end);
 };
