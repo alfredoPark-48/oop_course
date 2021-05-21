@@ -141,7 +141,7 @@ int minimumAttention(ElementLine* head)
   return total;
 }
 
-// Function that returns minimum start and exit time
+// Function that returns maximum start and exit time
 int maximumAttention(ElementLine* head)
 {
   ElementLine* temp = head;
