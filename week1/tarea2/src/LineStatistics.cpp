@@ -125,11 +125,9 @@ int minimumAttention(LineStatistics* head)
 
   while (temp != nullptr)
   {
-    int startMinutes = temp->data.getStartMinutes() > 0 ? 60 - temp->data.getStartMinutes() : 0;
-    int startHour = temp->data.getStartMinutes() > 0 ? (temp->data.getStartHour() + 1) * 60 : (temp->data.getStartHour()) * 60;
-    int minutes = startMinutes + temp->data.getEndMinutes();
-    int hours = startHour - temp->data.getEndHour();
-    int time = minutes + hours;
+    int minutes = temp->data.getStartMinutes() > 0 ? 60 - temp->data.getStartMinutes() : 60;
+    int hour = temp->data.getStartHour()+1 == temp->data.getEndHour() ? 0 : 60;
+    int time = minutes + hour + temp->data.getEndMinutes();
 
     if (minimumTime > time)
     {
@@ -144,24 +142,21 @@ int minimumAttention(LineStatistics* head)
 int maximumAttention(LineStatistics* head)
 {
   LineStatistics* temp = head;
-  int total = 0;
+  int maximumTime = 0;
 
   while (temp != nullptr)
   {
-    int minutes = (60 - temp->data.getStartMinutes()) + temp->data.getEndMinutes();
-    int starthour = temp->data.getStartMinutes() > 0 ? ((temp->data.getStartHour() + 1) * 60) : ((temp->data.getStartHour()) * 60);
-    int endHour = temp->data.getEndHour() * 60;
-    int hour = endHour - starthour;
-    int time = hour + minutes;
+    int minutes = temp->data.getStartMinutes() > 0 ? 60 - temp->data.getStartMinutes() : 60;
+    int hour = temp->data.getStartHour()+1 == temp->data.getEndHour() ? 0 : 60;
+    int time = minutes + hour + temp->data.getEndMinutes();
 
-    if (total < time)
+    if (maximumTime < time)
     {
-      total = time;
+      maximumTime = time;
     }
-    
     temp = temp->next;
   }
-  return total;
+  return maximumTime;
 }
 
 // Function that returns average session
