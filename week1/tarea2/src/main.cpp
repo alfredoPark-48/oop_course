@@ -7,8 +7,9 @@ using namespace std;
 int minimumWait(ElementLine* head);
 int maximumWait(ElementLine* head);
 void average(ElementLine* head);
-void averageAttention(ElementLine* head);
 int minimumAttention(ElementLine* head);
+int maximumAttention(ElementLine* head);
+void averageAttention(ElementLine* head);
 string whoIsAfter(ElementLine* head, string name);
 string whoIsBefore(ElementLine* head, string name);
 
@@ -68,6 +69,9 @@ int main() {
 
   // d. ¿Cuál fue el tiempo mínimo de atención (diferencia entre la hora de salida y de entrada)?
   cout << minimumAttention(luisa) << endl;
+
+  // e. ¿Cuál fue el tiempo máximo de atención (diferencia entre la hora de salida y de entrada)?
+  cout << maximumAttention(luisa) << endl;
 
   // f. ¿Cuál fue el tiempo promedio de atención (diferencia entre la hora de entrada y de salida)?
   averageAttention(luisa);

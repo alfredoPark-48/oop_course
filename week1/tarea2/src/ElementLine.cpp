@@ -94,6 +94,7 @@ int maximumWait(ElementLine* head)
   return difference;
 }
 
+// Function that returns average entrance time
 void average(ElementLine* head)
 {
   ElementLine* temp = head;
@@ -116,11 +117,11 @@ void average(ElementLine* head)
   return;
 }
 
+// Function that returns minimum start and exit time
 int minimumAttention(ElementLine* head)
 {
   ElementLine* temp = head;
   int total = 3600;
-  int count = 0;
 
   while (temp != nullptr)
   {
@@ -135,12 +136,36 @@ int minimumAttention(ElementLine* head)
       total = time;
     }
     
-    count++;
     temp = temp->next;
   }
   return total;
 }
 
+// Function that returns minimum start and exit time
+int maximumAttention(ElementLine* head)
+{
+  ElementLine* temp = head;
+  int total = 0;
+
+  while (temp != nullptr)
+  {
+    int minutes = (60 - temp->data.getStartMinutes()) + temp->data.getEndMinutes();
+    int starthour = temp->data.getStartMinutes() > 0 ? ((temp->data.getStartHour() + 1) * 60) : ((temp->data.getStartHour()) * 60);
+    int endHour = temp->data.getEndHour() * 60;
+    int hour = endHour - starthour;
+    int time = hour + minutes;
+
+    if (total < time)
+    {
+      total = time;
+    }
+    
+    temp = temp->next;
+  }
+  return total;
+}
+
+// Function that returns average session
 void averageAttention(ElementLine* head)
 {
   ElementLine* temp = head;
