@@ -4,47 +4,47 @@
 #include <iostream>
 using namespace std;
 
-int minimumWait(ElementLine* head);
-int maximumWait(ElementLine* head);
-void average(ElementLine* head);
-int minimumAttention(ElementLine* head);
-int maximumAttention(ElementLine* head);
-void averageAttention(ElementLine* head);
-string whoIsAfter(ElementLine* head, string name);
-string whoIsBefore(ElementLine* head, string name);
+int minimumWait(LineStatistics* head);
+int maximumWait(LineStatistics* head);
+void average(LineStatistics* head);
+int minimumAttention(LineStatistics* head);
+int maximumAttention(LineStatistics* head);
+void averageAttention(LineStatistics* head);
+string whoIsAfter(LineStatistics* head, string name);
+string whoIsBefore(LineStatistics* head, string name);
 
 int main() {
   // Luisa
   Time luisaStartTime(11, 0);
   Time luisaEndTime(12, 0);
-  LineStatistics luisaData("Luisa", luisaStartTime, luisaEndTime);
+  ElementLine luisaData("Luisa", luisaStartTime, luisaEndTime);
   
   // Pedro
   Time pedroStartTime(11, 25);
   Time pedroEndTime(12,16);
-  LineStatistics pedroData("Pedro", pedroStartTime, pedroEndTime);
+  ElementLine pedroData("Pedro", pedroStartTime, pedroEndTime);
 
   // Juana
   Time juanaStartTime(12, 15);
   Time juanaEndTime(13, 22);
-  LineStatistics juanaData("Juana", juanaStartTime, juanaEndTime);
+  ElementLine juanaData("Juana", juanaStartTime, juanaEndTime);
 
   // Roberto
   Time robertoStartTime(12,17);
   Time robertoEndTime(13,20);
-  LineStatistics robertoData("Roberto", robertoStartTime, robertoEndTime);
+  ElementLine robertoData("Roberto", robertoStartTime, robertoEndTime);
 
   // Rubi
   Time rubiStartTime(12,54);
   Time rubiEndTime(14,0);
-  LineStatistics rubiData("Rubí", rubiStartTime, rubiEndTime);
+  ElementLine rubiData("Rubí", rubiStartTime, rubiEndTime);
 
   // Elements
-  ElementLine* luisa = new ElementLine();
-  ElementLine* pedro = new ElementLine();
-  ElementLine* juana = new ElementLine();
-  ElementLine* roberto = new ElementLine();
-  ElementLine* rubi = new ElementLine();
+  LineStatistics* luisa = new LineStatistics();
+  LineStatistics* pedro = new LineStatistics();
+  LineStatistics* juana = new LineStatistics();
+  LineStatistics* roberto = new LineStatistics();
+  LineStatistics* rubi = new LineStatistics();
 
   // Linking elements
   luisa->data = luisaData;
@@ -94,9 +94,9 @@ int main() {
 }
 
 // Function that returns name of the person after the name given @ argument
-std::string whoIsAfter(ElementLine* head, std::string name)
+std::string whoIsAfter(LineStatistics* head, std::string name)
 {
-  ElementLine* temp = head;
+  LineStatistics* temp = head;
   while (temp != nullptr)
   {
     if (temp->data.getName() == name)
@@ -109,10 +109,10 @@ std::string whoIsAfter(ElementLine* head, std::string name)
 }
 
 // Function that returns name of the person before the name given @ argument
-std::string whoIsBefore(ElementLine* head, std::string name)
+std::string whoIsBefore(LineStatistics* head, std::string name)
 {
-  ElementLine* temp = head;
-  ElementLine* tempNext = temp->next;
+  LineStatistics* temp = head;
+  LineStatistics* tempNext = temp->next;
 
   while (temp != nullptr)
   {
