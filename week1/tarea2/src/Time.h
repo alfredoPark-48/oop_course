@@ -15,7 +15,7 @@ class Time {
       this->hour = hour;
       this->minutes = minutes;
     };
-    ~Time();
+    ~Time(){};
 
     // Getters
     int getHour();

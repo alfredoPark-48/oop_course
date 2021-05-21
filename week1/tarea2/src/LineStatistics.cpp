@@ -15,6 +15,26 @@ Time LineStatistics::getEndTime()
   return end;
 }
 
+int LineStatistics::getStartHour()
+{
+  return start.getHour();
+}
+
+int LineStatistics::getStartMinutes()
+{
+  return start.getMinutes();
+}
+
+int LineStatistics::getEndHour()
+{
+  return end.getHour();
+}
+
+int LineStatistics::getEndMinutes()
+{
+  return end.getMinutes();
+}
+
 void LineStatistics::setName(std::string name)
 {
   this->name = name;

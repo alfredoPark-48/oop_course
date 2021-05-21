@@ -25,12 +25,16 @@ class LineStatistics {
       this->end = end;
     }
 
-    ~LineStatistics();
+    ~LineStatistics(){};
 
     // Getters
     std::string getName();
     Time getStartTime();
     Time getEndTime();
+    int getStartHour();
+    int getStartMinutes();
+    int getEndHour();
+    int getEndMinutes();
 
     // Setters
     void setName(std::string name);
