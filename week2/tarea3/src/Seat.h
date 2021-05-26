@@ -9,12 +9,14 @@ class Seat {
     Seat* next;
 
   public:
+    // Constructor
     Seat() {
       price = 0;
       reserved = false;
       next = nullptr;
     };
     
+    // Destructor
     ~Seat() {};
 
     // Function that returns price    
@@ -27,5 +29,5 @@ class Seat {
     std::string getClient();
 
     // Function to add a seat
-    void addSeat(Seat* head, Seat* next);
+    void addSeat(Seat* head, Seat* newSeat);
 };
