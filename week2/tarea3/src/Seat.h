@@ -3,17 +3,16 @@
 
 class Seat {
   protected:
+    int number;
     int price;
     bool reserved;
     std::string client;
-    Seat* next;
 
   public:
     // Constructor
     Seat() {
       price = 0;
       reserved = false;
-      next = nullptr;
     };
     
     // Destructor
@@ -27,7 +26,4 @@ class Seat {
 
     // Function that returns client name
     std::string getClient();
-
-    // Function to add a seat
-    void addSeat(Seat* head, Seat* newSeat);
 };
