@@ -93,12 +93,11 @@ int main()
   // Reserving seats by number
   rose.reserveSeat(&n1, peter, 1);
   rose.reserveSeat(&n1, mark, 3);
-
   mary.reserveSeat(&n1, robert, 6);
   mary.reserveSeat(&n1, danny, 9);
 
+  // Printing all seats reserved
   n1.print(&n1);
-
 
   return 0;
 }
