@@ -18,6 +18,15 @@ class Seat {
     // Destructor
     ~Seat() {};
 
+    // Function that sets client name
+    void setName(std::string client);
+
+    // Function that sets seat to reserved
+    void setReserved();
+
+    // Function that returns number
+    int getNumber();
+
     // Function that returns price    
     int getPrice();
 
