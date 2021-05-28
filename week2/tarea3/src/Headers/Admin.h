@@ -35,6 +35,9 @@ class Admin:public Person
     // Function that sets admin number
     void setAdminNumber(int adminNum);
 
+    // Function that reserves a seat
+    void reserveSeat(Node* head, Client client, int seatNum);
+
     // Function that returns admin number
     int getAdminNumber();
 };

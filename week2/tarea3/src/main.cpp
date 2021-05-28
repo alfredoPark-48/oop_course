@@ -25,6 +25,7 @@ int main()
   // Client instances
   Client peter("Peter", "240-473-3556");
   Client mark("Mark", "618-202-2331");
+  Client robert("Robert", "520-258-0270");
   Client danny("Danny", "951-800-8314");
 
   // Setting client numbers
@@ -59,31 +60,42 @@ int main()
   VipSeat v12(12, vipPrice);
 
   // Adding data to node list
-  Node n1(s1);
-  Node n2(s2);
-  Node n3(s3);
-  Node n4(s4);
-  Node n5(r5);
-  Node n6(r6);
-  Node n7(r7);
-  Node n8(r8);
-  Node n9(v9);
-  Node n10(v10);
-  Node n11(v11);
-  Node n12(v12);
+  Node n1(s1.getNumber(), s1);
+  Node n2(s2.getNumber(), s2);
+  Node n3(s3.getNumber(), s3);
+  Node n4(s4.getNumber(), s4);
+
+  Node n5(r5.getNumber(), r5);
+  Node n6(r6.getNumber(), r6);
+  Node n7(r7.getNumber(), r7);
+  Node n8(r8.getNumber(), r8);
+
+  Node n9(v9.getNumber(), v9);
+  Node n10(v10.getNumber(), v10);
+  Node n11(v11.getNumber(), v11);
+  Node n12(v12.getNumber(), v12);
   
   // Linking
   n1.next = &n2;
   n2.next = &n3;
   n3.next = &n4;
   n4.next = &n5;
+
   n5.next = &n6;
   n6.next = &n7;
   n7.next = &n8;
   n8.next = &n9;
+
   n9.next = &n10;
   n10.next = &n11;
   n11.next = &n12;
+
+  // Reserving seats by number
+  rose.reserveSeat(&n1, peter, 1);
+  rose.reserveSeat(&n1, mark, 3);
+
+  mary.reserveSeat(&n1, robert, 6);
+  mary.reserveSeat(&n1, danny, 9);
 
   n1.print(&n1);
 

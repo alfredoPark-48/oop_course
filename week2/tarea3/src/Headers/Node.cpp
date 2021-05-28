@@ -1,15 +1,34 @@
 #include "Node.h"
 #include <iostream>
 
+int Node::getNumber()
+{
+  return number;
+}
+
+std::string Node::getType()
+{
+  return type;
+}
+
 void Node::print(Node* head)
 {
   Node* temp = head;
 
   while (temp != nullptr)
   {
-    std::cout << temp->simpleSeat.getPrice() << std::endl;
-    std::cout << temp->reclineSeat.getPrice() << std::endl;
-    std::cout << temp->vipSeat.getPrice() << std::endl;
+    if (temp->simpleSeat.isReserved())
+    {
+      std::cout << "Seat " << temp->getNumber() << " is reserved!" << std::endl; 
+    }
+    if (temp->reclineSeat.isReserved())
+    {
+      std::cout << "Seat " << temp->getNumber() << " is reserved!" << std::endl; 
+    }
+    if (temp->vipSeat.isReserved())
+    {
+      std::cout << "Seat " << temp->getNumber() << " is reserved!" << std::endl; 
+    }
 
     temp = temp->next;
   }
