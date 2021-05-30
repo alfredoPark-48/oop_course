@@ -30,6 +30,12 @@ T LinkedList<T>::getData()
 }
 
 template <typename T>
+LinkedList<T>* LinkedList<T>::getNext()
+{
+  return next;
+}
+
+template <typename T>
 void LinkedList<T>::setNext(LinkedList* newElement)
 {
   LinkedList* temp = head;

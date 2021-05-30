@@ -20,6 +20,8 @@ class LinkedList
     // Function that returns data
     T getData();
 
+    LinkedList* getNext();
+
     // Function that sets data
     void setData(T data);
 
