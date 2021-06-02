@@ -16,7 +16,7 @@ class ListInterface
     void add(T data);
 
     // Add by index
-    void addByPosition(int index, LinkedList<T> *newNode);
+    void addByIndex(int index, T data);
 
     // Get by index
     void get(int index);
