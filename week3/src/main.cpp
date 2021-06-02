@@ -21,7 +21,7 @@ int main()
   list.addByIndex(3, 2);
 
   // Getting by index
-  list.get(1);
+  list.get(6);
 
   // Removing by index
   list.remove(1);

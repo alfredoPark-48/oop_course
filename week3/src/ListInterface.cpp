@@ -94,7 +94,7 @@ void ListInterface<T>::get(int index)
     int count = 0;
     while (temp != nullptr)
     {
-      if (count == index - 1)
+      if (count == index)
       {
         std::cout << temp->getData() << std::endl;
         return;
