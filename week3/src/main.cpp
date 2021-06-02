@@ -15,17 +15,22 @@ int main()
   list.add(3);
   list.add(4);
   list.add(5);
+  list.add(6);
 
   // Adding by index
   list.addByIndex(3, 2);
 
   // Getting by index
-  list.get(3);
+  list.get(1);
+
+  // Removing by index
+  list.remove(1);
+
+  // Get size
+  cout << list.size() << endl;
 
   // Printing list
   list.print();
-
-
 
   return 0;
 }

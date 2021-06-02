@@ -40,6 +40,9 @@ void ListInterface<T>::add(T data)
 
       temp = temp->next;
     }
+    temp->next = nullptr;
+
+    delete temp;
   }
 
 }
@@ -49,14 +52,8 @@ void ListInterface<T>::addByIndex(int index, T data)
 {
   int size = getSize(head);
   
-  if (index > size - 1)
+  if (checkSize(head, size, index))
   {
-    std::cout << index <<" index is too large! List size is " << size << std::endl;
-    return;
-  } else if (index < 0) {
-    std::cout << "Index cannot be less than 0!" << std::endl;
-    return;
-  } else {
     LinkedList<T>* newNode = new LinkedList<T>;
     newNode->setData(data);
 
@@ -71,10 +68,10 @@ void ListInterface<T>::addByIndex(int index, T data)
     }
 
     // Iterate through list until count == index
-    int count = 1;
+    int count = 0;
     while (temp != nullptr)
     {
-      if (count == index)
+      if (count == index - 1)
       {
        newNode->next = temp->next;
        temp->next = newNode;
@@ -91,20 +88,13 @@ void ListInterface<T>::get(int index)
 {
   int size = getSize(head);
 
-  if (index > size - 1)
+  if (checkSize(head, size, index))
   {
-    std::cout << index <<" index is too large! List size is " << size << std::endl;
-    return;
-  } else if (index < 0)
-  {
-    std::cout << "Index cannot be less than 0!" << std::endl;
-    return;
-  } else {
     LinkedList<T>* temp = head;
     int count = 0;
     while (temp != nullptr)
     {
-      if (count == index)
+      if (count == index - 1)
       {
         std::cout << temp->getData() << std::endl;
         return;
@@ -113,15 +103,69 @@ void ListInterface<T>::get(int index)
       count++;
       temp = temp->next;
     }
+
+    delete temp;
   }
 
   return;
+}
+
+template <typename T>
+void ListInterface<T>::remove(int index)
+{
+  int size = getSize(head);
+
+  if (checkSize(head, size, index))
+  {
+    LinkedList<T>* temp = head;
+    LinkedList<T>* next = temp->next;
+
+    // If index == 0 remove node and make next the head
+    if (index == 0)
+    {
+      temp = temp->next;
+      head->next = nullptr;
+      head = temp;
+      return;
+    } else {
+      int count = 1;
+      // Iterating through list
+      while (temp != nullptr)
+      {
+        if (count == index)
+        {
+          temp->next = temp->next->next;
+          next->next = nullptr;
+          return;
+        }
+        count++;
+        temp = temp->next;
+        next = temp->next;
+      }
+    }
+  }
 }
 
 template<typename T>
 int ListInterface<T>::size()
 {
   return getSize(head);
+}
+
+
+template <typename T>
+void ListInterface<T>::print()
+{
+  LinkedList<T>* temp = head;
+
+  while (temp != nullptr)
+  {
+    std::cout << temp->getData() << " -> ";
+
+    temp = temp->next;
+  }
+
+  return;
 }
 
 template <typename T>
@@ -144,16 +188,17 @@ int getSize(LinkedList<T>* list)
 }
 
 template <typename T>
-void ListInterface<T>::print()
+bool checkSize(LinkedList<T>* head, int size, int index)
 {
-  LinkedList<T>* temp = head;
-
-  while (temp != nullptr)
+  if (index > size - 1)
   {
-    std::cout << temp->getData() << " -> ";
-
-    temp = temp->next;
+    std::cout << index <<" index is too large! List size is " << size << std::endl;
+    return false;
+  } else if (index < 0)
+  {
+    std::cout << "Index cannot be less than 0!" << std::endl;
+    return false;
+  } else {
+    return true;
   }
-
-  return;
 }
