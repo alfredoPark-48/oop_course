@@ -1,6 +1,8 @@
+#pragma once
 #include "Video.h"
 #include "Season.h"
 #include <vector>
+#include <iostream>
 
 class Serie:protected Video
 {
@@ -9,6 +11,12 @@ class Serie:protected Video
 
   public:
     Serie();
-    Serie(int id, std::string name, float duration, std::string genre, float rating, Season season);
+    Serie(int id, std::string name, float duration, std::string genre, float rating);
     ~Serie(){};
+
+    float getSeasonRating(int season);
+
+    void addSeason(Season season);
+    void removeSeason();
+    void print();
 };

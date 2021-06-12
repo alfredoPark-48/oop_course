@@ -14,6 +14,7 @@ class Season
     ~Season(){};
     
     int getSeasonNumber();
+    float getSeasonRating();
 
     void setSeasonNumber(int number);
     void addEpisode(Episode newEpisode);
