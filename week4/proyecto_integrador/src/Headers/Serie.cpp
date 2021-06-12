@@ -39,8 +39,10 @@ void Serie::print()
 {
   for (int i=0; i<seasons.size(); i++)
   {
-    std::cout << "Season" << i+1 << ": " << std::endl;
+    std::cout << "---------------------" << std::endl;
+    std::cout << "Season " << i+1 << ": " << std::endl;
     seasons.at(i).printEpisodes();
   }
+  std::cout << "---------------------" << std::endl;
   return;
 }

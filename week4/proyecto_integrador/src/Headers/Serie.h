@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 
-class Serie:protected Video
+class Serie:public Video
 {
   private:
     std::vector<Season> seasons;
